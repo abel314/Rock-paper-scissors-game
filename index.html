@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="imageContainer">
+        <img src="images/rock-intheair.png" id="rock-intheair">
+        <img src="images/rock-lying.png" id="rock-lying">
+        <img src="images/paper-lying.png" id="paper-lying">
+        <img src="images/scissors-lying.png" id="scissors-lying">
+    </div>
+    <form>
+        <div id="radioBtns">
+            <h1>Pick your choice:</h1>
+
+            <span class="boxes" id="rock-block">
+                <input type="radio" name="choice" value="rock" id="rock">
+                <label for="rock">
+                    Rock
+                    <img src="images/Rock.png">
+                </label><br>
+            </span>
+
+            <span class="boxes" id="paper-block">
+                <input type="radio" name="choice" value="paper" id="paper">
+                <label for="paper">
+                    Paper
+                    <img src="images/Paper.png">
+                </label><br>
+            </span>
+
+            <span class="boxes" id="scissors-block">
+                <input type="radio" name="choice" value="scissors" id="scissors">
+                <label for="scissors">
+                    Scissors
+                    <img src="images/Scissors.png">
+                </label><br>
+            </span>
+        </div>
+
+        <br> <br>
+
+        <p id="outcomeWin"></p>
+        <p id="outcomeTie"></p>
+        <p id="outcomeLose"></p>
+        <p id="rolledElement"></p>
+        <button id="replayBtn" hidden></button>
+
+        <button type="button" id="submitBtn" onclick="roll()">Submit</button>
+        
+    </form>
+
+    <script src="index.js"></script>
+</body>
+</html>
