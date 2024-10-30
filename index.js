@@ -1,144 +1,178 @@
 const rolled = document.getElementById("rolledElement");
+
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
-const outcomeWin = document.getElementById("outcomeWin");
-const outcomeTie = document.getElementById("outcomeTie");
-const outcomeLose = document.getElementById("outcomeLose");
+
 const replayBtn = document.getElementById("replayBtn");
-const submitBtn = document.getElementById("submitBtn");
+
 const rockImg = document.getElementById("rockImg");
 const paperImg = document.getElementById("paperImg");
 const scissorsImg = document.getElementById("scissorsImg");
-const rockInTheAirImg = document.getElementById("rock-intheair");
-const rocklyingImg = document.getElementById("rock-lying");
-const paperlyingImg = document.getElementById("paper-lying");
-const scissorslyingImg = document.getElementById("scissors-lying");
-const radioBtns = document.getElementById("radioBtns");
 
-function roll(){
+const playerImgRock = document.getElementById("playerImgRock");
+const playerImgPaper = document.getElementById("playerImgPaper");
+const playerImgScissors = document.getElementById("playerImgScissors");
+
+const computerImgRock = document.getElementById("computerImgRock");
+const computerImgPaper = document.getElementById("computerImgPaper");
+const computerImgScissors = document.getElementById("computerImgScissors");
+
+const rockLink = document.getElementById("rockLink");
+const paperLink = document.getElementById("paperLink");
+const scissorsLink = document.getElementById("scissorsLink");
+
+const outcomeWin1 = document.getElementById("outcomeWin1");
+const outcomeLose1 = document.getElementById("outcomeLose1");
+const outcomeTie1 = document.getElementById("outcomeTie1");
+const outcome2 = document.getElementById("outcome2")
+
+const playerCounter = document.getElementById("playerCounter");
+const computerCounter = document.getElementById("computerCounter");
+
+
+
+let pCounter = 0;
+let cCounter = 0;
+
+rockLink.onclick = function(){
     const options = ["Rock", "Paper", "Scissors"];
     const randomIndex = Math.floor(Math.random() * options.length);
     const randomElement = options[randomIndex];
 
-    function displayComputerChoice(){
+    playerImgPaper.style.display = "none";
+    playerImgScissors.style.display = "none";
+    playerImgRock.style.display = "inline";
 
-        rockInTheAirImg.style.display = "block";
+    outcomeWin1.textContent = "";
+    outcomeLose1.textContent = "";
+    outcomeTie1.textContent = "";
+    outcome2.textContent = "";
 
-        setTimeout(() => {
-            rockInTheAirImg.style.display = "none";
-            rocklyingImg.style.display = "block";
-        }, 250);
+    if(randomElement === "Rock"){
+        computerImgScissors.style.display = "none";
+        computerImgPaper.style.display = "none";
+        computerImgRock.style.display = "inline";
 
-        setTimeout(() => {
-            rocklyingImg.style.display = "none";
-            setTimeout(() => {
-                rockInTheAirImg.style.display = "block";
-            }, 100);
-        }, 500);
+        outcomeTie1.textContent = "It's a tie!";
+        outcome2.textContent = "Rock ties rock";
 
-        setTimeout(() => {
-            rockInTheAirImg.style.display = "none";
-            rocklyingImg.style.display = "block";
-        }, 750);
-
-        setTimeout(() => {
-            if(randomElement === "Scissors"){
-                rocklyingImg.style.display = "none";
-                setTimeout(() => {
-                    scissorslyingImg.style.display = "block";
-                }, 100);
-                setTimeout(() => {
-                    scissorslyingImg.style.display = "none";
-                }, 999);
-            }
-            else if(randomElement === "Rock"){
-                rocklyingImg.style.display = "none";
-                setTimeout(() => {
-                    rocklyingImg.style.display = "block";
-                }, 100);
-                setTimeout(() => {
-                    rocklyingImg.style.display = "none";
-                }, 999);
-            }
-            else{
-                rocklyingImg.style.display = "none";
-                setTimeout(() => {
-                    paperlyingImg.style.display = "block";
-                }, 100);
-                setTimeout(() => {
-                    paperlyingImg.style.display = "none";
-                }, 999);
-            }
-        }, 1000);
-    
-        setTimeout(() => {
-            rolled.textContent = randomElement;
-        }, 1250);
     }
+    else if(randomElement === "Paper"){
+        cCounter++;
+        computerCounter.textContent = `COMPUTER: ${cCounter}`
 
-    function playAgain(){
-        submitBtn.hidden = true;
-        replayBtn.hidden = false;
-        replayBtn.textContent = "Play Again";
-    }
-    function tie(){
-        setTimeout(() => {
-            outcomeTie.textContent = "TIE!";
-            playAgain();
-        }, 2000);
-    }
-    function won(){
-        setTimeout(() => {
-            outcomeWin.textContent = "YOU WON! 🎉";
-            playAgain();
-        }, 2000);
-    }
-    function lost(){
-        setTimeout(() => {
-            outcomeLose.textContent = "YOU LOST! ☹";
-            playAgain();
-        }, 2000);
-    }
+        computerImgScissors.style.display = "none";
+        computerImgRock.style.display = "none";
+        computerImgPaper.style.display = "inline";
 
-
-    if(rock.checked){
-        displayComputerChoice()
-        if(randomElement === "Rock"){
-            tie();
-        }
-        else if(randomElement === "Paper"){
-            lost();
-        }
-        else{
-            won()
-        }
-    }
-    else if(paper.checked){
-        displayComputerChoice()
-        if(randomElement === "Paper"){
-            tie();
-        }
-        else if(randomElement === "Scissors"){
-            lost();
-        }
-        else{
-            won()
-        }
-    }
-    else if(scissors.checked){
-        displayComputerChoice()
-        if(randomElement === "Scissors"){
-            tie();
-        }
-        else if(randomElement === "Rock"){
-            lost();
-        }
-        else{
-            won()
-        }
+        outcomeLose1.textContent = "You lost!"
+        outcome2.textContent = "Rock wins from paper!";
     }
     else{
-        rolled.textContent = "Please pick your choice"
+        pCounter++;
+        playerCounter.textContent = `PLAYER: ${pCounter}`
+
+        computerImgPaper.style.display = "none";
+        computerImgRock.style.display = "none";
+        computerImgScissors.style.display = "inline";
+
+        outcomeWin1.textContent = "You won!";
+        outcome2.textContent = "Rock wins from scissors";
+    }
+}
+
+paperLink.onclick = function(){
+    const options = ["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    const randomElement = options[randomIndex];
+
+    playerImgRock.style.display = "none";
+    playerImgScissors.style.display = "none";
+    playerImgPaper.style.display = "inline";
+
+    outcomeWin1.textContent = "";
+    outcomeLose1.textContent = "";
+    outcomeTie1.textContent = "";
+    outcome2.textContent = "";
+
+    if(randomElement === "Rock"){
+        pCounter++;
+        playerCounter.textContent = `PLAYER: ${pCounter}`
+
+        computerImgScissors.style.display = "none";
+        computerImgPaper.style.display = "none";
+        computerImgRock.style.display = "inline";
+
+        outcomeWin1.textContent = "You won!";
+        outcome2.textContent = "Paper wins from rock";
+
+    }
+    else if(randomElement === "Paper"){
+        computerImgScissors.style.display = "none";
+        computerImgRock.style.display = "none";
+        computerImgPaper.style.display = "inline";
+
+        outcomeTie1.textContent = "It's a tie!"
+        outcome2.textContent = "Paper ties paper!";
+    }
+    else{
+        cCounter++;
+        computerCounter.textContent = `COMPUTER: ${cCounter}`
+
+        computerImgPaper.style.display = "none";
+        computerImgRock.style.display = "none";
+        computerImgScissors.style.display = "inline";
+
+        outcomeLose1.textContent = "You lost!";
+        outcome2.textContent = "Paper loses from scissors";
+    }
+}
+
+scissorsLink.onclick = function(){
+    const options = ["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    const randomElement = options[randomIndex];
+
+    playerImgRock.style.display = "none";
+    playerImgPaper.style.display = "none";
+    playerImgScissors.style.display = "inline";
+
+    outcomeWin1.textContent = "";
+    outcomeLose1.textContent = "";
+    outcomeTie1.textContent = "";
+    outcome2.textContent = "";
+
+
+    if(randomElement === "Rock"){
+        cCounter++;
+        computerCounter.textContent = `COMPUTER: ${cCounter}`
+
+        computerImgPaper.style.display = "none";
+        computerImgScissors.style.display = "none";
+        computerImgRock.style.display = "inline";
+
+        outcomeLose1.textContent = "You lost!";
+        outcome2.textContent = "Scissors loses from rock";
+
+    }
+    else if(randomElement === "Paper"){
+        pCounter++;
+        playerCounter.textContent = `PLAYER: ${pCounter}`
+
+        computerImgScissors.style.display = "none";
+        computerImgRock.style.display = "none";
+        computerImgPaper.style.display = "inline";
+
+        outcomeWin1.textContent = "You won!"
+        outcome2.textContent = "Scissors wins from paper!";
+    }
+    else{
+        computerImgPaper.style.display = "none";
+        computerImgRock.style.display = "none";
+        computerImgScissors.style.display = "inline";
+
+        outcomeTie1.textContent = "It's a tie!";
+        outcome2.textContent = "Scissors ties scissors";
     }
 }

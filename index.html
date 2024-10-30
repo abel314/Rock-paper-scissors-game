@@ -5,52 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="imageContainer">
-        <img src="images/rock-intheair.png" id="rock-intheair">
-        <img src="images/rock-lying.png" id="rock-lying">
-        <img src="images/paper-lying.png" id="paper-lying">
-        <img src="images/scissors-lying.png" id="scissors-lying">
+    <div id="headerContainer">
+        <h1 id="header">ROCK PAPER SCISSORS</h1>
     </div>
     <form>
         <div id="radioBtns">
-            <h1>Pick your choice:</h1>
+            <h1 id="pickChoiceH1">Pick your choice</h1>
 
             <span class="boxes" id="rock-block">
-                <input type="radio" name="choice" value="rock" id="rock">
-                <label for="rock">
-                    Rock
-                    <img src="images/Rock.png">
-                </label><br>
+                <a href="#" class="image-link" id="rockLink">
+                    <img src="images/Rock.png" class="imageButtons">
+                </a>
             </span>
 
             <span class="boxes" id="paper-block">
-                <input type="radio" name="choice" value="paper" id="paper">
-                <label for="paper">
-                    Paper
-                    <img src="images/Paper.png">
-                </label><br>
+                <a href="#" class="image-link" id="paperLink">
+                    <img src="images/Paper.png" class="imageButtons">
+                </a>
             </span>
 
             <span class="boxes" id="scissors-block">
-                <input type="radio" name="choice" value="scissors" id="scissors">
-                <label for="scissors">
-                    Scissors
-                    <img src="images/Scissors.png">
-                </label><br>
+                <a href="#" class="image-link" id="scissorsLink">
+                    <img src="images/Scissors.png" class="imageButtons">
+                </a>
             </span>
         </div>
+        <br>
+        <h3 id="outcomeWin1" class="outcome"></h3>
+        <h3 id="outcomeTie1" class="outcome"></h3>
+        <h3 id="outcomeLose1" class="outcome"></h3>
+        <h4 id="outcome2"></h4>
+        <br>
+        <div id="scoreContainer">
+            <div class="scoreColumns">
+                <h2 class="scoreHeaders" id="playerCounter">PLAYER: 0</h2> <br>
+                <img src="images/Rock.png" class="scoreImages playerScoreImages" id="playerImgRock">
+                <img src="images/Paper.png" class="scoreImages playerScoreImages" id="playerImgPaper">
+                <img src="images/Scissors.png" class="scoreImages playerScoreImages" id="playerImgScissors">
+            </div>
+            <div class="scoreColumns">
+                <h2 class="scoreHeaders" id="computerCounter">COMPUTER: 0</h2> <br>
+                <img src="images/Rock.png" class="scoreImages computerScoreImages" id="computerImgRock">
+                <img src="images/Paper.png" class="scoreImages computerScoreImages" id="computerImgPaper">
+                <img src="images/Scissors.png" class="scoreImages computerScoreImages" id="computerImgScissors">
+            </div>
+        </div>
 
-        <br> <br>
-
-        <p id="outcomeWin"></p>
-        <p id="outcomeTie"></p>
-        <p id="outcomeLose"></p>
         <p id="rolledElement"></p>
         <button id="replayBtn" hidden></button>
-
-        <button type="button" id="submitBtn" onclick="roll()">Submit</button>
         
     </form>
 
