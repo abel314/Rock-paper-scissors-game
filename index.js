@@ -100,7 +100,11 @@ function playRound(playerChoice) {
         playerCounter.textContent = `PLAYER: 5`;
         setTimeout(() => {
             endOfGameWindow.style.display = "flex";
+<<<<<<< HEAD
             result.textContent = "You won!"
+=======
+            result.textContent = "You won! 🎉"
+>>>>>>> 5bf440b (Simlifying of JS code and adding a play again window)
         }, 500);
 
 
