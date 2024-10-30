@@ -15,7 +15,8 @@
     </div>
     <form>
         <div id="radioBtns">
-            <h1 id="pickChoiceH1">Pick your choice</h1>
+            <h1 class="pickChoice">Pick your choice</h1>
+            <h3 class="pickChoice" id="pickChoiceH3">First to score 5 points wins!</h3>
 
             <span class="boxes" id="rock-block">
                 <a href="#" class="image-link" id="rockLink">
@@ -35,7 +36,6 @@
                 </a>
             </span>
         </div>
-        <br>
         <h3 id="outcomeWin1" class="outcome"></h3>
         <h3 id="outcomeTie1" class="outcome"></h3>
         <h3 id="outcomeLose1" class="outcome"></h3>
@@ -44,21 +44,28 @@
         <div id="scoreContainer">
             <div class="scoreColumns">
                 <h2 class="scoreHeaders" id="playerCounter">PLAYER: 0</h2> <br>
+                <img src="images/question-mark.png" class="questionMarks" id="pQuestionMark">
                 <img src="images/Rock.png" class="scoreImages playerScoreImages" id="playerImgRock">
                 <img src="images/Paper.png" class="scoreImages playerScoreImages" id="playerImgPaper">
                 <img src="images/Scissors.png" class="scoreImages playerScoreImages" id="playerImgScissors">
             </div>
             <div class="scoreColumns">
                 <h2 class="scoreHeaders" id="computerCounter">COMPUTER: 0</h2> <br>
+                <img src="images/question-mark.png" class="questionMarks" id="cQuestionMark">
                 <img src="images/Rock.png" class="scoreImages computerScoreImages" id="computerImgRock">
                 <img src="images/Paper.png" class="scoreImages computerScoreImages" id="computerImgPaper">
                 <img src="images/Scissors.png" class="scoreImages computerScoreImages" id="computerImgScissors">
             </div>
         </div>
-
-        <p id="rolledElement"></p>
-        <button id="replayBtn" hidden></button>
-        
+        <div id="modalBackground">
+            <div id="endOfGame">
+                <div id="windowContent">
+                    <p id="result">Result</p>
+                    <br><br>
+                    <button id="replayBtn" onclick="resetGame()">Play Again</button>
+                </div>
+            </div>
+        </div>
     </form>
 
     <script src="index.js"></script>
