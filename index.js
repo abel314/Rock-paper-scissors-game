@@ -73,48 +73,50 @@ function playRound(playerChoice) {
     computerImgPaper.style.display = "none";
     computerImgScissors.style.display = "none";
 
-    if (playerChoice === randomElement) {
-        outcomeTie1.textContent = "It's a tie!";
-        outcome2.textContent = `${playerChoice} ties ${randomElement}`;
-    } else if (
-        (playerChoice === "Rock" && randomElement === "Scissors") ||
-        (playerChoice === "Paper" && randomElement === "Rock") ||
-        (playerChoice === "Scissors" && randomElement === "Paper")
-    ) {
-        pCounter++;
-        playerCounter.textContent = `PLAYER: ${pCounter}`;
-        outcomeWin1.textContent = "You won!";
-        outcome2.textContent = `${playerChoice} wins from ${randomElement}`;
-    } else {
-        cCounter++;
-        computerCounter.textContent = `COMPUTER: ${cCounter}`;
-        outcomeLose1.textContent = "You lost!";
-        outcome2.textContent = `${playerChoice} loses from ${randomElement}`;
-    }
+    computerQuestionMark.style.display = "inline";
 
-    if (randomElement === "Rock") computerImgRock.style.display = "inline";
-    if (randomElement === "Paper") computerImgPaper.style.display = "inline";
-    if (randomElement === "Scissors") computerImgScissors.style.display = "inline";
+    setTimeout(() => {
+        computerQuestionMark.style.display = "none";
+       
+        if (playerChoice === randomElement) {
+            outcomeTie1.textContent = "It's a tie!";
+            outcome2.textContent = `${playerChoice} ties ${randomElement}`;
+        } else if (
+            (playerChoice === "Rock" && randomElement === "Scissors") ||
+            (playerChoice === "Paper" && randomElement === "Rock") ||
+            (playerChoice === "Scissors" && randomElement === "Paper")
+        ) {
+            pCounter++;
+            playerCounter.textContent = `PLAYER: ${pCounter}`;
+            outcomeWin1.textContent = "You won!";
+            outcome2.textContent = `${playerChoice} wins from ${randomElement}`;
+        } else {
+            cCounter++;
+            computerCounter.textContent = `COMPUTER: ${cCounter}`;
+            outcomeLose1.textContent = "You lost!";
+            outcome2.textContent = `${playerChoice} loses from ${randomElement}`;
+        }
 
-    if (pCounter === 5) {
-        playerCounter.textContent = `PLAYER: 5`;
-        setTimeout(() => {
-            endOfGameWindow.style.display = "flex";
-<<<<<<< HEAD
-            result.textContent = "You won!"
-=======
-            result.textContent = "You won! 🎉"
->>>>>>> 5bf440b (Simlifying of JS code and adding a play again window)
-        }, 500);
+        if (randomElement === "Rock") computerImgRock.style.display = "inline";
+        if (randomElement === "Paper") computerImgPaper.style.display = "inline";
+        if (randomElement === "Scissors") computerImgScissors.style.display = "inline";
+
+        if (pCounter === 5) {
+            playerCounter.textContent = `PLAYER: 5`;
+            setTimeout(() => {
+                endOfGameWindow.style.display = "flex";
+                result.textContent = "You won! 🎉"
+            }, 400);
 
 
-    } else if (cCounter === 5) {
-        computerCounter.textContent = `COMPUTER: 5`;
-        setTimeout(() => {
-            endOfGameWindow.style.display = "flex";
-            result.textContent = "You lost..."
-        }, 500);
-    }
+        } else if (cCounter === 5) {
+            computerCounter.textContent = `COMPUTER: 5`;
+            setTimeout(() => {
+                endOfGameWindow.style.display = "flex";
+                result.textContent = "You lost..."
+            }, 400);
+        } 
+    }, 1000);
 }
 
 function resetGame() {

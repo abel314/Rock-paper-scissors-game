@@ -63,8 +63,14 @@ span{
 .image-link{
     text-decoration: none;
 }
+#outcomeTexts{
+    margin-top: 5px;
+    min-height: 62px;
+}
+
 
 #scoreContainer{
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -127,6 +133,7 @@ span{
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.527);
 }
 
 #windowContent{
@@ -150,4 +157,8 @@ span{
     padding: 5px 10px;
     border-radius: 6px;
     cursor: pointer;
+}
+
+#helloHeader{
+    font-size: 2em;
 }
