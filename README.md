@@ -1,2 +1,2 @@
-Rock Paper Scissors game created with HTML, CSS and JavaScript.
-Play the game here: https://github.com/abel314/Rock-paper-scissors-game.git
+Rock Paper Scissors game created with HTML, CSS and JavaScript. <br>
+Play the game here: https://abel314.github.io/Rock-paper-scissors-game/
